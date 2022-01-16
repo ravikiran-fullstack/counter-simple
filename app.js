@@ -38,28 +38,27 @@ const btns = document.querySelectorAll(".btn");
 const counterSpan = document.getElementById("counter");
 
 btns.forEach(function (btn) {
-  console.log(btn);
   btn.addEventListener("click", function (e) {
-    console.log(e.currentTarget);
     if (e.currentTarget.classList.contains("decrease")) {
       counter--;
-      counterSpan.textContent = counter;
+
       if (prevCounter > counter) {
         counterSpan.style.color = "red";
       }
       prevCounter = counter;
     } else if (e.currentTarget.classList.contains("increase")) {
       counter++;
-      counterSpan.textContent = counter;
+
       if (prevCounter < counter) {
         counterSpan.style.color = "green";
       }
       prevCounter = counter;
     } else {
       counter = 0;
-      counterSpan.textContent = counter;
+
       counterSpan.style.color = "black";
       prevCounter = counter;
     }
+    counterSpan.textContent = counter;
   });
 });
